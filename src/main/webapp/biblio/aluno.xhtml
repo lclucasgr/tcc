@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="/WEB-INF/template-cadastrar.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:jsf="http://xmlns.jcp.org/jsf"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="content">
+        <h1>Cadastro de Alunos</h1>
+        <p:messages></p:messages>
+        <h:form>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="aluno-matricula" type="text" jsf:value="#{alunoBean.aluno.matricula}"/>
+                    <label for="aluno-matricula" class="active">Matricula</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="aluno-nome" type="text" jsf:value="#{alunoBean.aluno.nome}"/>
+                    <label for="aluno-nome" class="active">Nome</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="aluno-nome" type="text" jsf:value="#{alunoBean.aluno.email}"/>
+                    <label for="music-year" class="active">Email</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="aluno-celular" type="text" jsf:value="#{alunoBean.aluno.celular}"/>
+                    <label for="aluno-celular" class="active">Celular</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <h:selectOneMenu id="aluno-turma" value="#{alunoBean.turmaId}">
+                        <f:selectItems var="turma" value="#{turmaBean.findAll()}" itemValue="#{turma.id}" itemLabel="#{turma.nome}"/>
+                    </h:selectOneMenu>
+                    <label for="aluno-turma" class="active">Turma</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="aluno-mae" type="text" jsf:value="#{alunoBean.aluno.mae}"/>
+                    <label for="aluno-mae" class="active">Nome da mae</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="aluno-pai" type="text" jsf:value="#{alunoBean.aluno.pai}"/>
+                    <label for="aluno-pai" class="active">Nome do pai</label>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <h:commandLink action="#{alunoBean.persist()}" class="waves-effect waves-light btn red darken-3" value="Salvar"></h:commandLink>
+            </div>
+        </h:form>
+
+        <h:form>
+            <div class="row">
+                <div class="col s12">
+                    <p:dataTable var="aluno" paginator="true" rows="10" value="#{alunoBean.alunoList}">
+                        <p:column priority="1" class="center">
+                            <p:link class="btn blue white-text" outcome="detalhes-aluno" value="Ver">
+                                <f:param name="id" value="#{aluno.id}"></f:param>
+                            </p:link>
+                        </p:column>
+
+                        <p:column headerText="Matrícula" priority="3">
+                            <h:outputText  value="#{aluno.matricula}"/>
+                        </p:column>
+
+                        <p:column headerText="Nome" priority="2">
+                            <h:outputText value="#{aluno.nome}" />
+                        </p:column>
+
+                        <p:column headerText="Turma" priority="4">
+                            <h:outputFormat value="#{aluno.turma.nome}" />
+                        </p:column>
+
+                        <ui:remove>
+                            <p:column headerText="Email" priority="4">
+                                <h:outputText value="#{aluno.email}"/>
+                            </p:column>
+
+                            <p:column headerText="Celular" priority="5">
+                                <h:outputText value="#{aluno.celular}" />
+                            </p:column>
+
+                            <p:column headerText="Nome da mãe" priority="6">
+                                <h:outputFormat value="#{aluno.mae}" />
+                            </p:column>
+
+                            <p:column headerText="Nome do pai" priority="7">
+                                <h:outputFormat value="#{aluno.pai}" />
+                            </p:column>
+
+                        </ui:remove>
+
+
+
+
+
+
+
+
+                        <p:column headerText="">
+                            <div class="row center">
+                                <div class="col s12">
+                                    <h:commandLink action="#{alunoBean.edit(aluno)}" class="waves-effect waves-light btn blue darken-3 white-text">
+                                        <i class="material-icons">mode_edit</i>
+                                    </h:commandLink>
+                                </div>
+                                <div class="col s12">
+                                    <h:commandLink action="#{alunoBean.delete(aluno)}" class="waves-effect waves-light btn red darken-3 white-text">
+                                        <i class="material-icons">delete_forever</i>
+                                    </h:commandLink>
+                                </div>
+                            </div>
+                        </p:column>
+                    </p:dataTable>
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+
+</ui:composition>
+
+

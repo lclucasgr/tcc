@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:jsf="http://xmlns.jcp.org/jsf"
+                template="/WEB-INF/template-principal.xhtml"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="content">
+        <!-- intro -->
+        <div class="row">
+            <div class="col s12">
+
+                <div class="col s6">
+
+                    <h:link outcome="/biblio/cadastro.jsf">
+                        <h:graphicImage library="images" name="cadastro.png" class="responsive-img utf-brand"/><br/>
+                        Cadastrar
+                    </h:link>
+
+                </div>
+
+                <div class="col s6">
+                    <h:link outcome="/biblio/emprestimo.jsf">
+                        <h:graphicImage library="images" name="emprestimo.png" class="responsive-img utf-brand"/><br/>
+                        Emprestimos
+                    </h:link>
+                </div>
+            </div>
+
+            <div class="col s12">
+                <div class="col s6">
+                    <h:link outcome="/biblio/devolucao.jsf">
+                        <h:graphicImage library="images" name="devolucao.png" class="responsive-img utf-brand"/><br/>
+                        Devolucao
+                    </h:link>
+                </div>
+
+
+                <div class="col s6">
+                    <!--h:link outcome="/biblio/relatorio.jsf"-->
+                    <h:graphicImage library="images" name="relatorio.png" class="responsive-img utf-brand"/><br/>
+                    Relatorios
+                    <!--/h:link-->
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+
+
+    </ui:define>
+
+</ui:composition>

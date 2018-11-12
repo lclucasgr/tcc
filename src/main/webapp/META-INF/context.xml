@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/tcc">
+  <Realm className="org.apache.catalina.realm.JDBCRealm" connectionName="root" connectionPassword="" connectionURL="jdbc:mysql://localhost:3306/tcc_db" digest="SHA-256" driverName="com.mysql.jdbc.Driver" roleNameCol="name" userCredCol="senha" userNameCol="email" userRoleTable="roles" userTable="users"> 
+            
+  </Realm>
+</Context>

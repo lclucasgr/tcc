@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="/WEB-INF/template-emprestimo.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:jsf="http://xmlns.jcp.org/jsf"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="content">
+        <h1>Emprestimos de Livros Literarios</h1>
+        <p:messages></p:messages>
+        <h:form>
+
+            <div class="row">
+
+                <div class="input-field col s12">
+                    <h:selectOneMenu id="emprestimo-aluno" value="#{emprestimoLiterarioBean.alunoId}">
+                        <f:selectItem itemValue="" itemLabel="Selecione uma aluno"></f:selectItem>
+                        <f:selectItems var="aluno" value="#{alunoBean.findAll()}" itemValue="#{aluno.id}" itemLabel="#{aluno.nome} - #{aluno.matricula}"/>
+                    </h:selectOneMenu>
+                    <label for="aluno-turma" class="active">Aluno</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <p:calendar id="data-emprestimo" pattern="dd/MM/yyyy" mask="true" value="#{emprestimoLiterarioBean.emprestimoLiterario.dataEmprestimo}"/>
+                    <label for="popup" class="active">Data de emprestimo</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <p:calendar id="devolucao" pattern="dd/MM/yyyy" mask="true" value="#{emprestimoLiterarioBean.emprestimoLiterario.dataDevolucao}"/>
+                    <label for="popup" class="active">Data de devolucao</label>
+                </div>
+            </div>
+
+
+            <div class="row right">
+                <h:commandLink action="#{emprestimoLiterarioBean.persist()}" class="waves-effect waves-light btn red darken-3 utf-space" value="Salvar"></h:commandLink>
+                <h:commandLink action="#{emprestimoLiterarioBean.voltar()}" class="waves-effect waves-light btn red darken-3" value="Limpar"></h:commandLink>
+            </div>
+        </h:form>
+
+        <h:form>
+            <div class="row">
+                <div class="col s12">
+                    <p:dataTable var="emprestimoLiterario" paginator="false"  value="#{emprestimoLiterarioBean.findLivrosEmprestados()}">
+                        <p:column headerText="Id" priority="4" class="center">
+                            <p:link class="btn blue white-text" outcome="livros-literarios-do-emprestimo" value="Ver">
+                                <f:param name="id" value="#{emprestimoLiterario.id}"></f:param>
+                            </p:link>
+                            <!--
+                            <h:outputLink value="livros-literarios-do-emprestimo.jsf" >
+                                <h:outputText value="Ver livros do emprestimo #{emprestimoLiterario.id}" />
+                                <f:param name="id" value="#{emprestimoLiterario.id}"></f:param>
+                            </h:outputLink>
+                            -->
+                        </p:column>
+
+                        <p:column headerText="Aluno">
+                            <h:outputText value="#{emprestimoLiterario.aluno.nome}" />
+                        </p:column>
+
+
+                        <p:column headerText="Data-Emprestimo">
+                            <h:outputFormat value="#{emprestimoLiterario.dataEmprestimo}" >
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </h:outputFormat>
+                        </p:column>
+
+                        <p:column headerText="Data-Devolucao">
+                            <h:outputFormat value="#{emprestimoLiterario.dataDevolucao}">
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </h:outputFormat>
+                        </p:column>
+
+                        <p:column headerText="Status">
+                            <h:outputText value="#{emprestimoLiterario.formatStatus(emprestimoLiterario.status)}" />
+                        </p:column>
+
+
+                        <p:column headerText="">
+                            <div class="row center">
+                                <div class="col s12">
+                                    <h:commandLink action="#{emprestimoLiterarioBean.edit(emprestimoLiterario)}" class="waves-effect waves-light btn blue darken-3 white-text">
+                                        <i class="material-icons">mode_edit</i>
+                                    </h:commandLink>
+                                </div>
+                                <div class="col s12">
+                                    <h:commandLink action="#{emprestimoLiterarioBean.delete(emprestimoLiterario)}" class="waves-effect waves-light btn red darken-3 white-text">
+                                        <i class="material-icons">delete_forever</i>
+                                    </h:commandLink>
+                                </div>
+                            </div>
+                        </p:column>
+                    </p:dataTable>
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

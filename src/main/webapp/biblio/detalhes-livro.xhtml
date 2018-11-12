@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="/WEB-INF/template-cadastrar.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:jsf="http://xmlns.jcp.org/jsf"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:define name="css">
+        <h:outputStylesheet name="details.css" library="styles"/>
+    </ui:define>
+
+    <ui:define name="content">
+        <f:metadata>
+            <f:viewParam name="id" value="#{livroLiterarioBean.livroId}"></f:viewParam>
+            <f:viewAction action="#{livroLiterarioBean.getCurrentLivro()}"></f:viewAction>
+        </f:metadata>
+
+        <h1>Informações sobre o Livro</h1>
+
+        <ul class="collection">
+            <li class="collection-item"><span class="my-header-item">Titulo: </span><h:outputText  value="#{livroLiterarioBean.livroLiterario.titulo}"/></li>
+            <li class="collection-item"><span class="my-header-item">Autor: </span> <h:outputText  value="#{livroLiterarioBean.livroLiterario.autor}"/></li>
+            <li class="collection-item"><span class="my-header-item">Classificacao: </span> <h:outputText  value="#{livroLiterarioBean.livroLiterario.classificacao.nome}"/></li>
+            <li class="collection-item"><span class="my-header-item">Número de páginas: </span> <h:outputText value="#{livroLiterarioBean.livroLiterario.paginas}"/></li>
+            <li class="collection-item"><span class="my-header-item">Edição: </span><h:outputText value="#{livroLiterarioBean.livroLiterario.edicao}" /></li>
+            <li class="collection-item"><span class="my-header-item">Ano: </span><h:outputFormat value="#{livroLiterarioBean.livroLiterario.ano}" /></li>
+            <li class="collection-item"><span class="my-header-item">ISBN: </span><h:outputFormat value="#{livroLiterarioBean.livroLiterario.isbn}" /></li>
+            <li class="collection-item"><span class="my-header-item">Genero: </span><h:outputFormat value="#{livroLiterarioBean.livroLiterario.genero}" /></li>
+            <li class="collection-item"><span class="my-header-item">Codigo: </span><h:outputFormat value="#{livroLiterarioBean.livroLiterario.codigo}" /></li>
+        </ul>
+
+    </ui:define>
+
+</ui:composition>

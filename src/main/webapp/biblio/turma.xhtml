@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<ui:composition template="/WEB-INF/template-cadastrar.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:jsf="http://xmlns.jcp.org/jsf"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="content">
+        <h1>Cadastro de Turmas</h1>
+        <p:messages></p:messages>
+        <h:form>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="turma-nome" type="text" jsf:value="#{turmaBean.turma.nome}"/>
+                    <label for="turma-nome" class="active">Turma</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <h:selectOneMenu id="turma-dia" value="#{turmaBean.turma.dia}">
+                        <f:selectItem itemValue="" itemLabel="Selecione um dia da semana"></f:selectItem>
+                        <f:selectItem itemValue="0" itemLabel="Segunda-Feira"></f:selectItem>
+                        <f:selectItem itemValue="1" itemLabel="Terça-Feira"></f:selectItem>
+                        <f:selectItem itemValue="2" itemLabel="Quarta-Feira"></f:selectItem>
+                        <f:selectItem itemValue="3" itemLabel="Quinta-Feira"></f:selectItem>
+                        <f:selectItem itemValue="4" itemLabel="Sexta-Feira"></f:selectItem>
+                    </h:selectOneMenu>
+                    <label for="turma-dia" class="active">Dia da Semana para ir a biblioteca</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <h:selectOneMenu id="turma-horario" value="#{turmaBean.turma.horario}">
+                        <f:selectItem itemValue="" itemLabel="Selecione um horario"></f:selectItem>
+                        <f:selectItem itemValue="0" itemLabel="Primeiro"></f:selectItem>
+                        <f:selectItem itemValue="1" itemLabel="Segundo"></f:selectItem>
+                        <f:selectItem itemValue="2" itemLabel="Terceiro"></f:selectItem>
+                        <f:selectItem itemValue="3" itemLabel="Quarto"></f:selectItem>
+                        <f:selectItem itemValue="4" itemLabel="Quinto"></f:selectItem>
+                    </h:selectOneMenu>
+                    <label for="turma-horario" class="active">Horario para ir a biblioteca</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <h:selectOneMenu id="turma-turno" value="#{turmaBean.turma.turno}">
+                        <f:selectItem itemValue="" itemLabel="Selecione um turno"></f:selectItem>
+                        <f:selectItem itemValue="0" itemLabel="Manha"></f:selectItem>
+                        <f:selectItem itemValue="1" itemLabel="Tarde"></f:selectItem>
+                    </h:selectOneMenu>
+                    <label for="turma-turno" class="active">Turno</label>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="turma-professor" type="text" jsf:value="#{turmaBean.turma.professor}"/>
+                    <label for="turma-professor" class="active">Nome do Professor de Portugues</label>
+                </div>
+            </div>
+
+            <div class="row right">
+                <h:commandLink action="#{turmaBean.reset()}" class="waves-effect waves-light btn blue darken-3 utf-space" value="Novo"></h:commandLink>
+                <h:commandLink action="#{turmaBean.persist()}" class="waves-effect waves-light btn red darken-3" value="Salvar"></h:commandLink>
+            </div>
+
+        </h:form>
+
+        <h:form>
+            <div class="row">
+                <div class="col s12">
+                    <p:dataTable id="utf-table" var="turma" value="#{turmaBean.turmaList}" paginator="true" rows="100">
+
+
+                        <p:column headerText="Nome" priority="5">
+                            <h:outputText value="#{turma.nome}" />
+                        </p:column>
+
+                        <p:column headerText="Dia" priority="3">
+                            <h:outputText value="#{turma.getTextByWeekday()}" />
+                        </p:column>
+
+                        <p:column headerText="Horario" priority="3">
+                            <h:outputText value="#{turma.getTextBySchedule()}" />
+                        </p:column>
+
+                        <p:column headerText="Professor" priority="2">
+                            <h:outputText value="#{turma.professor}" />
+                        </p:column>
+
+                        <p:column headerText="Turno" priority="6">
+                            <h:outputText value="#{turma.getTextByTurn()}" />
+                        </p:column>
+
+                        <p:column headerText="" priority="1">
+                            <div class="row center">
+                                <div class="col s6 ">
+                                    <h:commandLink action="#{turmaBean.edit(turma)}" class="waves-effect waves-light btn blue darken-3 white-text">
+                                        <i class="material-icons">mode_edit</i>
+                                    </h:commandLink>
+                                </div>
+                                <div class="col s6">
+                                    <h:commandLink actionListener="#{turmaBean.delete(turma)}" class="waves-effect waves-light btn red darken-3 white-text">
+                                        <i class="material-icons">delete_forever</i>
+                                    </h:commandLink>
+                                </div>
+                            </div>
+                        </p:column>
+                    </p:dataTable>
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+
+</ui:composition>
+
