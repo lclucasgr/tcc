@@ -34,7 +34,7 @@ OBS: o email não precisa ser esse porem deve estar presente nas duas tabelas, s
 ## Ferramentas
 - Netbeans
 - Xampp
-- Tomcat 8.5
+- Tomcat 8.0.41
 - Maven
 
 ## Versão Corrente
