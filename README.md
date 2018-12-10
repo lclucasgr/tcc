@@ -4,7 +4,7 @@
 Estas instruções são para clonar o projeto em sua máquina local para desenvolvimento.
 - Clone o repositório https://github.com/lclucasgr/tcc.git em seu workpace.
 - Faça o download das dependências do Maven.
-- Crie o banco de dados `tcc_db`.
+- Acesse esse endereço http://localhost/phpmyadmin/ e crie o banco de dados `tcc_db`.
 - Mude os dados de acesso ao banco de dados no `persistence.xml`, localizado em `/src/main/resources/META-INF` para acesso ao banco de dados local.
 - Exemplo:
   - `<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/seu_db"/>`
