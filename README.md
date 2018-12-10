@@ -1,8 +1,9 @@
 # Sistema de Biblioteca Escolar
 
 ## Manual de Execução
-Estas instruções são para clonar o projeto em sua máquina local para desenvolvimento.
-- Clone o repositório https://github.com/lclucasgr/tcc.git em seu workpace.
+Tendo todas as ferramentas citadas mais abaixo já instaladas, siga as instruções abaixo:
+- Clone o projeto que está no repositório https://github.com/lclucasgr/tcc.git em seu workpace.
+- Com o Netbeans já instalado abra o projeto que foi clonado
 - Faça o download das dependências do Maven.
 - Acesse esse endereço http://localhost/phpmyadmin/ e crie o banco de dados `tcc_db`.
 - Mude os dados de acesso ao banco de dados no `persistence.xml`, localizado em `/src/main/resources/META-INF` para acesso ao banco de dados local.
