@@ -11,7 +11,7 @@ Estas instruções são para clonar o projeto em sua máquina local para desenvo
   - `<property name="javax.persistence.jdbc.user" value="seuuser"/>`
   - `<property name="javax.persistence.jdbc.password" value="suasenha"/>`
 - Se for a primeira execução do sistema na máquina ou a primeira após deletar o banco de dados, altere o parametro de `value` para  `create` como mostra a linha abaixo, caso contrario altere para `none`
-  - `<property name="hibernate.hbm2ddl.auto" value="create"/>`
+  - `<property name="javax.persistence.schema-generation.database.action" value="create"/>`
 - CRIE A TABELA `roles` com os campos com o nome `email` do tipo `VARCHAR(255)` e campo `name` do tipo `VARCHAR(100)`
 - CRIE A TABELA `users` com os campos com o nome `email` do tipo `VARCHAR(255)` e campo `senha` do tipo `VARCHAR(100)`
 
@@ -38,4 +38,4 @@ OBS: o email não precisa ser esse porem deve estar presente nas duas tabelas, s
 - Maven
 
 ## Versão Corrente
-0.0.1 - Release 12/11/2018
+0.0.2 - Release 10/12/2018
