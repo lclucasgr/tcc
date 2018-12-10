@@ -18,7 +18,11 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "emprestimos_literarios")
@@ -42,10 +46,10 @@ public class EmprestimoLiterario implements Serializable {
     @Enumerated(EnumType.STRING)
     private Status status = Status.O;
 
-    //@NotEmpty(message = "DATA EMPRESTIMO - nao pode ser vazio")
+    @NotNull(message = "DATA EMPRESTIMO - Nao pode ser vazia")
     private Date dataEmprestimo;
 
-    //@NotEmpty(message = "DATA DEVOLUCAO - nao pode ser vazio")
+    @NotNull(message = "DATA DEVOLUCAO - Nao pode ser vazia")
     private Date dataDevolucao;
 
     public EmprestimoLiterario() {

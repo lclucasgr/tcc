@@ -9,14 +9,13 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <ui:define name="content">
-        <h1>Devolucao - Livro Literario</h1>
+        <h1>Devolução - Livro Literário</h1>
         <p:messages></p:messages>
         <h:form>
 
             <div class="row">
                 <div class="input-field col s12">
                     <h:selectOneMenu id="livro" value="#{emprestimoLiterarioBean.livroLiterarioId}">
-                        <f:selectItem itemValue="" itemLabel="Livro"></f:selectItem>
                         <f:selectItems var="livroLiterario"  value="#{livroLiterarioBean.findAllFalse()}" itemValue="#{livroLiterario.id}" itemLabel="#{livroLiterario.titulo} - #{livroLiterario.codigo}"/>
                     </h:selectOneMenu>
                     <label for="livro" class="active">Livro</label>

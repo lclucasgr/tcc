@@ -28,7 +28,6 @@ public class Classificacao implements Serializable {
     private Long id;
 
     @NotEmpty(message = "NOME - Nao pode ser vazio")
-    //@Pattern(regexp = "([A-ZÀ-Ú][a-zà-ú]+\\s?)+", message = "NOME - O nome deve conter somente letras de A-Z")
     @Size(message = "NOME - Deve ter entre 2 e 255 caracteres", min = 2, max = 255)
     private String nome;
 

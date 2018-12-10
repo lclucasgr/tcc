@@ -31,13 +31,12 @@ public class Aluno implements Serializable {
     private Long id;
 
     @NotEmpty(message = "MATRICULA - Nao pode ser vazio")
-    @Column(unique = true)
+    //@Column(unique = true)
     private String matricula;
 
     @NotEmpty(message = "NOME - Nao pode ser vazio")
     @Size(min = 2, max = 255, message = "NOME - Tamanho entre 2 e 255")
     @Pattern(regexp = "([A-ZÀ-Ú][a-zà-ú]+\\s?)+", message = "NOME - O nome deve conter somente letras de A-Z")
-    //Permitir somente letras e espaços
     private String nome;
 
     @NotEmpty(message = "EMAIL - Nao pode ser vazio")
@@ -45,25 +44,13 @@ public class Aluno implements Serializable {
     @Size(min = 2, max = 255, message = "EMAIL - Tamanho entre 2 e 255")
     private String email;
 
-    //@NotEmpty
-    //Dificil criar uma expressao de validacao
-    //pois alguns numeros tem esse formato (2)(4)-(4) e outros (2)(5)-(4)
-    //Existem alunos que nao tem celular
     private String celular;
 
-    //@NotEmpty
-    //@Size(min = 2, max = 255)
-    //Pode ser vazio por que alguns alunos podem ter a mae falecida ou desconhecida
     private String mae;
 
-    //@NotEmpty
-    //@Size(min = 2, max = 255)
-    //Pode ser vazio por que alguns alunos podem ter o pai falecido ou desconhecido
     private String pai;
 
     @ManyToOne
-    //@NotEmpty(message = "TURMA - O aluno deve ser cadastrado em uma turma")
-    //nao persistia aluno
     private Turma turma;
 
     public Long getId() {

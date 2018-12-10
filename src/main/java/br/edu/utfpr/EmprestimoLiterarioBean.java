@@ -105,14 +105,11 @@ public class EmprestimoLiterarioBean implements Serializable {
     }
 
     public void delete(EmprestimoLiterario emprestimoLiterario) {
-        //System.out.println("Id " + emprestimoLivroLiterario.getId());
         EmprestimoLiterario emprestimoLiterarioOriginal = emprestimoLiterarioService.getById(emprestimoLiterario.getId());
-        //System.out.println("Turma: " + emprestimoLivroLiterarioOriginal);
         boolean isSuccess = emprestimoLiterarioService.delete(emprestimoLiterarioOriginal);
         System.out.println("Deletado " + isSuccess);
         if (isSuccess) {
             findAll();
-            //System.out.println("findall executado ");
             MessageUtil.showMessage("Removido com sucesso", "", FacesMessage.SEVERITY_INFO);
         }
         this.emprestimoLiterario = new EmprestimoLiterario();
@@ -221,23 +218,14 @@ public class EmprestimoLiterarioBean implements Serializable {
             emprestimoLiterarioService.update(el);
         }
 
-        /*
-        //No emprestimo do aluno pode ter livros emprestados e devolvidos
-        if (counter != 0 && counter < el.getLivroLiterarios().size()) {
-            el.setStatus(EmprestimoLiterario.Status.P);
-
-            emprestimoLiterarioService.update(el);
-        }
-         */
         System.out.println("Livro devolvido " + livroLiterario.getTitulo() + " Status :" + livroLiterario.getDisponibilidade());
 
     }
 
     public void adicionarLivroEmprestimo() {
-        //livro
-        //emprestimo
+
         this.emprestimoLiterario = emprestimoLiterarioService.getById(emprestimoId);
-        if (this.emprestimoLiterario.getLivroLiterarios().size() < 4) {
+        if (this.emprestimoLiterario.getLivroLiterarios().size() < 4 || this.emprestimoLiterario.getLivroLiterarios().size() == 0) {
 
             LivroLiterario livroLiterario = livroLiterarioService.getById(livroLiterarioId);
             livroLiterario.setDisponibilidade("F");
@@ -258,7 +246,6 @@ public class EmprestimoLiterarioBean implements Serializable {
 
     public List<LivroLiterario> listarLivrosEmprestimo() {
 
-        //emprestimo
         this.emprestimoLiterario = emprestimoLiterarioService.getById(emprestimoId);
         return this.emprestimoLiterario.getLivroLiterarios();
     }
@@ -268,16 +255,12 @@ public class EmprestimoLiterarioBean implements Serializable {
     }
 
     public List<EmprestimoLiterario> findAll() {
-        //System.out.println("************************ findallllllllllllllllllll");
         this.emprestimoLiterarioList = emprestimoLiterarioService.findAllOrderedByIdDesc();
-        //System.out.println("Tamanho " + emprestimoLiterarioList.size());
         return emprestimoLiterarioList;
     }
 
     public List<EmprestimoLiterario> findLivrosEmprestados() {
-        //System.out.println("************************ findallllllllllllllllllll");
         this.emprestimoLiterarioList = emprestimoLiterarioService.findAllOrderedByIdDesc();
-        //System.out.println("Tamanho " + emprestimoLiterarioList.size());
         return emprestimoLiterarioList;
     }
 

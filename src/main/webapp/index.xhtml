@@ -7,29 +7,29 @@
                 xmlns:p="http://primefaces.org/ui">
 
     <ui:define name="content">
-        
-        <h1>Bem-Vindo ao sistema</h1>
-        
+
+        <h1>Login</h1>
+
         <p:growl id="growl" sticky="true" showDetail="true"/>
-                
+
         <h:form>
-        <div class="row">
-            
             <div class="row">
-                <div class="input-field col s12">
-                    <p:inputText value="#{login.email}"/>
-                    <label for="usuario">User</label>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <p:inputText value="#{login.email}"/>
+                        <label for="usuario">Usuario</label>
+                    </div>
+
+                    <div class="input-field col s12">
+                        <p:password value="#{login.senha}"/>
+                        <label for="password">Senha</label>
+                    </div>
                 </div>
-            
-                <div class="input-field col s12">
-                    <p:password value="#{login.senha}"/>
-                    <label for="password">Password</label>
-                </div>
+
+                <h:commandLink action="#{login.validarLogin()}" class="waves-effect waves-light btn red darken-3" value="Entrar"></h:commandLink>
             </div>
-            
-             <h:commandLink action="#{login.validarLogin()}" class="waves-effect waves-light btn red darken-3" value="Entrar"></h:commandLink>
-        </div>
-            
+
         </h:form>
     </ui:define>
 

@@ -9,18 +9,17 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <ui:define name="content">
-        <h1>Emprestimos de Livros Literarios</h1>
+        <h1>Empréstimos de Livros Literários</h1>
         <p:messages></p:messages>
         <h:form>
 
             <div class="row">
 
                 <div class="input-field col s12">
+                    <label for="popup" class="active">Selecione um aluno</label>
                     <h:selectOneMenu id="emprestimo-aluno" value="#{emprestimoLiterarioBean.alunoId}">
-                        <f:selectItem itemValue="" itemLabel="Selecione uma aluno"></f:selectItem>
                         <f:selectItems var="aluno" value="#{alunoBean.findAll()}" itemValue="#{aluno.id}" itemLabel="#{aluno.nome} - #{aluno.matricula}"/>
                     </h:selectOneMenu>
-                    <label for="aluno-turma" class="active">Aluno</label>
                 </div>
             </div>
 

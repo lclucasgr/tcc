@@ -29,26 +29,24 @@ public class Turma implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotEmpty(message = "TURMA - nao pode ser vazio")
-    @Size(min = 2, max = 2, message = "TURMA - Somente 2 caracteres e nao deve ter espacos nas extremidades")
-    @Pattern(regexp = "\\d[A-Za-z]", message = "TURMA - O Primeiro caracter deve ser um numero de 1 a 9 e o segundo uma letra entre A e Z")
-    @Column(unique = true)
+    @NotEmpty(message = "TURMA - não pode ser vazio")
+    @Size(min = 2, max = 2, message = "TURMA - Somente 2 caracteres")
+    @Pattern(regexp = "\\d[A-Za-z]", message = "TURMA - O Primeiro caracter deve ser qualquer número de 0 a 9 e o segundo uma letra entre A e Z")
+    //@Column(unique = true)
     private String nome;
 
-    //TODO mudar para enum ou int
-    @NotEmpty(message = "DIA DA SEMANA - nao pode ser vazio")
+    @NotEmpty(message = "DIA DA SEMANA - não pode ser vazio")
     private String dia;
 
-    @NotEmpty(message = "HORARIO - nao pode ser vazio")
+    @NotEmpty(message = "HORÁRIO - nao pode ser vazio")
     private String horario;
 
-    @NotEmpty(message = "PROFESSOR DE PORTUGUES - nao pode ser vazio")
-    @Size(min = 2, max = 50, message = "PROFESSOR DE PORTUGUES - o nome deve ser entre 2 e 50 caracteres")
-    //@Pattern(regexp = "[A-Za-z]", message = "PROFESSOR DE PORTUGUES - O nome deve conter somente letras de A-Z")
-    @Pattern(regexp = "([A-ZÀ-Ú][a-zà-ú]+\\s?)+", message = "PROFESSOR DE PORTUGUES - O nome deve conter somente letras de A-Z")
+    @NotEmpty(message = "PROFESSOR DE PORTUGUÊS - nao pode ser vazio")
+    @Size(min = 2, max = 50, message = "PROFESSOR DE PORTUGUÊS - o nome deve ser entre 2 e 50 caracteres")
+    @Pattern(regexp = "([A-ZÀ-Ú][a-zà-ú]+\\s?)+", message = "PROFESSOR DE PORTUGUÊS - O nome deve conter somente letras de A-Z e iniciar com maiúscula")
     private String professor;
 
-    @NotEmpty(message = "TURNO - nao pode ser vazio")
+    @NotEmpty(message = "TURNO - não pode ser vazio")
     private String turno;
 
     public Turma() {

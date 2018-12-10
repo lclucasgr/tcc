@@ -1,8 +1,10 @@
 package br.edu.utfpr.controller;
 
+import br.edu.utfpr.util.MessageUtil;
 import br.edu.utfpr.util.RoleUtil;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.ExternalContext;
@@ -63,9 +65,15 @@ public class LoginController {
 
         } catch (ServletException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-            return "/index?faces-redirect=true";
+            showMessage();
+            return null;
+
         }
 
+    }
+
+    public void showMessage() {
+        MessageUtil.showMessage("Login e senha invalidos", "", FacesMessage.SEVERITY_ERROR);
     }
 
 }

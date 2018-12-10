@@ -16,7 +16,6 @@
             <div class="row">
                 <div class="input-field col s12">
                     <h:selectOneMenu id="livro" value="#{emprestimoLiterarioBean.livroLiterarioId}">
-                        <f:selectItem itemValue="" itemLabel="Livro"></f:selectItem>
                         <f:selectItems var="livroLiterario"  value="#{livroLiterarioBean.findAllTrue()}" itemValue="#{livroLiterario.id}" itemLabel="#{livroLiterario.titulo} - #{livroLiterario.codigo}"/>
                     </h:selectOneMenu>
                     <label for="livro" class="active">Livro</label>
