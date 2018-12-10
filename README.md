@@ -32,9 +32,9 @@ OBS: o email não precisa ser esse porem deve estar presente nas duas tabelas, s
 - MaterializeCSS
 
 ## Ferramentas
-- Netbeans
+- Netbeans 8.2
 - Xampp
-- Tomcat 8.5
+- Tomcat 8.0.41
 - Maven
 
 ## Versão Corrente
