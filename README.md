@@ -38,7 +38,7 @@ OBS: o email não precisa ser esse porem deve estar presente nas duas tabelas, s
 - Tomcat 8.0.41
 - Maven
 
-OBS: O Netbeans poderá ser instalado com o Tomcat, quando for a instalar o Netbeans desmarque a opções instalar TOMCAT e instalar Glassfish
+OBS: O Netbeans poderá ser instalado com o Tomcat, quando for a instalar o Netbeans desmarque a opções instalar TOMCAT e instalar Glassfish, instale a versão do Tomcat que eu vou mandar
 
 ## Requisitos 
 - Windows 10 (64 bits)
