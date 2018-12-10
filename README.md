@@ -1,8 +1,8 @@
 # Sistema de Biblioteca Escolar
 
-## Manual de Execução
+## Manual de Instruções
 Tendo todas as ferramentas citadas mais abaixo já instaladas, siga as instruções abaixo:
-- Clone o projeto que está no repositório https://github.com/lclucasgr/tcc.git em seu workpace.
+- Clone o projeto que está no repositório https://github.com/lclucasgr/tcc.git em seu workspace.
 - Com o Netbeans já instalado abra o projeto que foi clonado
 - Faça o download das dependências do Maven.
 - Acesse esse endereço http://localhost/phpmyadmin/ e crie o banco de dados `tcc_db`.
