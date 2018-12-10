@@ -31,11 +31,14 @@ OBS: o email não precisa ser esse porem deve estar presente nas duas tabelas, s
 - Primefaces
 - MaterializeCSS
 
-## Ferramentas
+## Ferramentas que deve ser instalada
 - Netbeans 8.2
 - Xampp
 - Tomcat 8.0.41
 - Maven
+
+## Requisitos 
+- Windows 10 (64 bits)
 
 ## Versão Corrente
 0.0.2 - Release 10/12/2018
