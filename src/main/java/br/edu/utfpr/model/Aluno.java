@@ -31,7 +31,7 @@ public class Aluno implements Serializable {
     private Long id;
 
     @NotEmpty(message = "MATRICULA - Nao pode ser vazio")
-    //@Column(unique = true)
+    @Column(unique = true)
     private String matricula;
 
     @NotEmpty(message = "NOME - Nao pode ser vazio")

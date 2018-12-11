@@ -32,23 +32,23 @@ public class LivroLiterario implements Serializable {
     @Size(min = 2, max = 255)
     private String titulo;
 
-    @NotEmpty(message = "ISBN - Nao pode ser vazio")
+    //@NotEmpty(message = "ISBN - Nao pode ser vazio")
     private String isbn;
 
     @NotEmpty(message = "AUTOR - Nao pode ser vazio")
     @Size(min = 2, max = 255)
     private String autor;
 
-    @NotEmpty(message = "PAGINAS - Nao pode ser vazio")
-    @Min(value = 1)
-    @Max(value = 9999)
+    //@NotEmpty(message = "PAGINAS - Nao pode ser vazio")
+    //@Min(value = 1)
+    //@Max(value = 9999)
     private int paginas;
 
     private int edicao;
 
-    @NotEmpty
-    @Min(value = 1900)
-    @Max(value = 2019)
+    //@NotEmpty
+    //@Min(value = 1900)
+    //@Max(value = 2019)
     private int ano;
 
     @ManyToOne
@@ -59,7 +59,7 @@ public class LivroLiterario implements Serializable {
     private String disponibilidade;
 
     //@Column(unique = true)
-    @NotEmpty
+    //@NotEmpty
     private String codigo;
 
     public Long getId() {

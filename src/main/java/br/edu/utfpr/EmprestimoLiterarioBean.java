@@ -225,10 +225,11 @@ public class EmprestimoLiterarioBean implements Serializable {
     public void adicionarLivroEmprestimo() {
 
         this.emprestimoLiterario = emprestimoLiterarioService.getById(emprestimoId);
-        if (this.emprestimoLiterario.getLivroLiterarios().size() < 4 || this.emprestimoLiterario.getLivroLiterarios().size() == 0) {
+        if (this.emprestimoLiterario.getLivroLiterarios().size() < 4) {
 
             LivroLiterario livroLiterario = livroLiterarioService.getById(livroLiterarioId);
             livroLiterario.setDisponibilidade("F");
+            System.out.println(livroLiterario.getDisponibilidade());
             livroLiterario = livroLiterarioService.update(livroLiterario);
 
             this.emprestimoLiterario.getLivroLiterarios().add(livroLiterario);
