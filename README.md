@@ -33,7 +33,7 @@ OBS: o email não precisa ser esse porem deve estar presente nas duas tabelas, s
 - Primefaces
 - MaterializeCSS
 
-## Ferramentas que devem ser instaladas
+## Ferramentas que devem ser instaladas (irei dar do meu HD externo)
 - Netbeans 8.2
 - Xampp
 - Tomcat 8.0.41
