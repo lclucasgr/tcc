@@ -34,9 +34,9 @@ OBS: o email não precisa ser esse porem deve estar presente nas duas tabelas, s
 - MaterializeCSS
 
 ## Ferramentas que devem ser instaladas (irei dar do meu HD externo)
-- Netbeans 8.2
+- Netbeans 8.2 
 - Xampp
-- Tomcat 8.0.41
+- Tomcat 8.0.41 disponível em: https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.41/bin/
 - Maven
 - WinRAR
 
