@@ -13,9 +13,10 @@
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
             <!-- create - executa na criação - update - executa na consulta -->
-            <property name="hibernate.hbm2ddl.auto" value="update" />
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
             <!--<property name="hibernate.hbm2ddl.auto" value="create"/>-->
-            <!-- javax.persistence.schema-generation.database.action : for database action, values are "none", "create", "drop-and-create", "drop". -->
+            <!--javax.persistence.schema-generation.database.action : for database action, values are "none", "create", "drop-and-create", "drop". -->
+            <property name="javax.persistence.schema-generation.database.action" value="create"/>
         </properties>
     </persistence-unit>
 </persistence>

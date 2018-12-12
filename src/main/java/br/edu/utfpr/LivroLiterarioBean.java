@@ -28,7 +28,7 @@ public class LivroLiterarioBean implements Serializable {
     private Long livroId;
     private Long classificacaoId;
     private LivroLiterario livroLiterario;
-    private List<LivroLiterario> livroLiterarioListG;
+    private List<LivroLiterario> livroLiterarioList;
     private List<LivroLiterario> livroLiterarioListTrue;
     private List<LivroLiterario> livroLiterarioListFalse;
     private LivroLiterarioService livroLiterarioService;
@@ -63,11 +63,11 @@ public class LivroLiterarioBean implements Serializable {
     }
 
     public List<LivroLiterario> getLivroLiterarioList() {
-        return livroLiterarioListG;
+        return livroLiterarioList;
     }
 
-    public void setLivroLiterarioList(List<LivroLiterario> livroLiterarioListG) {
-        this.livroLiterarioListG = livroLiterarioListG;
+    public void setLivroLiterarioList(List<LivroLiterario> livroLiterarioList) {
+        this.livroLiterarioList = livroLiterarioList;
     }
 
     public LivroLiterarioService getLivroLiterarioService() {
@@ -140,6 +140,7 @@ public class LivroLiterarioBean implements Serializable {
             livroLiterarioOriginal.setPaginas(livroLiterario.getPaginas());
             livroLiterarioOriginal.setEdicao(livroLiterario.getEdicao());
             livroLiterarioOriginal.setIsbn(livroLiterario.getIsbn());
+            livroLiterarioOriginal.setAno(livroLiterario.getAno());
             livroLiterarioOriginal.setClassificacao(classificacao);
             livroLiterarioOriginal.setCodigo(livroLiterario.getCodigo());
             livroLiterarioService.update(livroLiterarioOriginal);
@@ -151,9 +152,9 @@ public class LivroLiterarioBean implements Serializable {
 
     public List<LivroLiterario> findAll() {
         //System.out.println("************************ findallllllllllllllllllll");
-        this.livroLiterarioListG = livroLiterarioService.findAllOrderedByTitle();
+        this.livroLiterarioList = livroLiterarioService.findAllOrderedByTitle();
         //System.out.println("Tamanho " + livroLiterarioList.size());
-        return livroLiterarioListG;
+        return livroLiterarioList;
     }
 
     public List<LivroLiterario> findAllTrue() {

@@ -29,27 +29,27 @@ public class LivroLiterario implements Serializable {
     private Long id;
 
     @NotEmpty(message = "TITULO - Nao pode ser vazio")
-    @Size(min = 2, max = 255)
+    @Size(min = 2, max = 255, message = "TITULO - Tamanho deve estar entre 2 e 255")
     private String titulo;
 
     //@NotEmpty(message = "ISBN - Nao pode ser vazio")
     private String isbn;
 
     @NotEmpty(message = "AUTOR - Nao pode ser vazio")
-    @Size(min = 2, max = 255)
+    @Size(min = 2, max = 255, message = "AUTOR - Tamanho deve estar entre 2 e 255")
     private String autor;
 
     //@NotEmpty(message = "PAGINAS - Nao pode ser vazio")
     //@Min(value = 1)
     //@Max(value = 9999)
-    private int paginas;
+    private String paginas;
 
-    private int edicao;
+    private String edicao;
 
     //@NotEmpty
     //@Min(value = 1900)
     //@Max(value = 2019)
-    private int ano;
+    private String ano;
 
     @ManyToOne
     private Classificacao classificacao;
@@ -59,7 +59,7 @@ public class LivroLiterario implements Serializable {
     private String disponibilidade;
 
     //@Column(unique = true)
-    //@NotEmpty
+    @NotEmpty(message = "CODIGO - Nao pode ser vazio")
     private String codigo;
 
     public Long getId() {
@@ -86,11 +86,11 @@ public class LivroLiterario implements Serializable {
         this.autor = autor;
     }
 
-    public int getPaginas() {
+    public String getPaginas() {
         return paginas;
     }
 
-    public void setPaginas(int paginas) {
+    public void setPaginas(String paginas) {
         this.paginas = paginas;
     }
 
@@ -102,19 +102,19 @@ public class LivroLiterario implements Serializable {
         this.classificacao = classificacao;
     }
 
-    public int getAno() {
+    public String getAno() {
         return ano;
     }
 
-    public void setAno(int ano) {
+    public void setAno(String ano) {
         this.ano = ano;
     }
 
-    public int getEdicao() {
+    public String getEdicao() {
         return edicao;
     }
 
-    public void setEdicao(int edicao) {
+    public void setEdicao(String edicao) {
         this.edicao = edicao;
     }
 
