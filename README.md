@@ -6,7 +6,7 @@ Tendo todas as ferramentas citadas mais abaixo já instaladas, siga as instruç�
 - Com o Netbeans já instalado abra o projeto que foi clonado
 - Faça o download das dependências do Maven.
 - Acesse esse endereço http://localhost/phpmyadmin/ e crie o banco de dados `tcc_db`.
-- Mude os dados de acesso ao banco de dados no `persistence.xml`, localizado em `/src/main/resources/META-INF` para acesso ao banco de dados local.
+- Mude os dados de acesso ao banco de dados de acordo com os seus no arquivo `persistence.xml`, localizado em `/src/main/resources/META-INF` para acesso ao banco de dados local.
 - Exemplo:
   - `<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/seu_db"/>`
   - `<property name="javax.persistence.jdbc.user" value="seuuser"/>`
